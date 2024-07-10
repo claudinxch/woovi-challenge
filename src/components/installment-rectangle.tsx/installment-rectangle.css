@@ -1,0 +1,114 @@
+.installment {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    max-width: 429px;
+    max-height: 137px;
+    padding: 20px 11px;
+    border: 2px solid #E5E5E5;
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.first {
+    border-radius: 10px;
+    border-top: 2px solid #E5E5E5;
+    border-bottom: 2px solid #E5E5E5;
+}
+
+.second {
+    border-top: 2px solid #E5E5E5;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.last {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 2px solid #E5E5E5;
+}
+
+.checked {
+    background-color: #F4FBF9;
+    border-color: #03D69D;
+}
+
+.installment .content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.installment .content .information p {
+    color: #4D4D4D;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+}
+
+.installment .content .information .cashback {
+    color: #03D69D;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.installment .cashback span {
+    font-weight: 800;   
+}
+
+.installment .content .information .total {
+    color: #AFAFAF;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.installment .banner {
+    background-color: #133A6F;
+    color: white;
+    padding: 10px 30px 10px 10px;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -2px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid #133A6F;
+    border-bottom: 20px solid #133A6F;
+    border-right: 22px solid #FFF;
+    border-radius: 8px;
+}
+
+.banner-text {
+    color: #FFF;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px; 
+    min-width: 328px;
+}
+
+.banner .banner-text span {
+    font-weight: 600;
+}
+
+.installment .pix {
+    position: absolute;
+    top: -15px;
+    background-color:#E5E5E5;
+    padding: 3.5px 19px;
+    border-radius: 100px;
+}
+
+.installment .pix p {
+    color: #4D4D4D;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 24px;
+}

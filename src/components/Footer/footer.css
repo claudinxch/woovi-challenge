@@ -1,0 +1,7 @@
+.footer-content {
+    display: flex;
+    align-items: start;
+    gap: 5px;
+    color: #B2B2B2;
+    margin-top: 40px;
+}
