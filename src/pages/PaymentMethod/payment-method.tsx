@@ -14,7 +14,6 @@ export function PaymentMethod(){
         setTimeout(() => {
             navigate("/pix-payment", { state: { installment: installment } })         
         }, 300)
-        console.log("Navigating with installment:", installment);
     };
 
     return (

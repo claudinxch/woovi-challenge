@@ -4,13 +4,14 @@ import { QRCode } from "../../components/QRCode/qrcode";
 import { Installment } from "../../data/installments";
 import { formatCurrency } from "../../helpers/price";
 import { useLocation } from "react-router-dom";
-import { Stepper, Step, StepLabel, StepConnector } from "@mui/material";
+import { Stepper, Step, StepLabel, StepConnector, Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import { stepConnectorClasses } from '@mui/material/StepConnector';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import './pix-payment.css'
-import { ExpandLess } from "@mui/icons-material";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { PaymentIdentifier } from "../../components/PaymentIdentifier/payment-identifier";
+import { useState } from "react";
 
 interface Entry {
     entry: string,
@@ -54,6 +55,12 @@ export function PixPayment() {
         },
     }));
 
+    const [expanded, setExpanded] = useState(false);
+
+    const handleChange = () => {
+        setExpanded(!expanded);
+    };
+
     return (
         <div className="pix-creditcard">
             <Container instruction={`João, pague a entrada de ${formatCurrency(installment.price)} pelo Pix`}>
@@ -62,61 +69,79 @@ export function PixPayment() {
 
                     <DueDate date={new Date('2021-12-15T11:17:00.000Z')} />
 
-                    {/* was it supposed to be an accordion with the steps, cet and como funciona? aaaa */}
-                    <div className="steps">
-                        <Stepper activeStep={0} connector={<BeautifulConnector />} orientation="vertical">
-                            {steps.map((step, index) => (
-                                <Step
-                                    key={index}
-                                    sx={{
-                                        '.MuiStep-root': {
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            padding: '0px',
-                                        },
-                                    }}>
-                                    <StepLabel
-                                    sx={{
-                                        '&.MuiStepLabel-root': {
-                                            padding: '0', 
-                                        },
-                                        '& .MuiStepLabel-label': {
-                                            color: '#4D4D4D',
-                                            fontFamily: 'Nunito',
-                                            fontSize: '18px',
-                                            fontWeight: '600',
-                                            lineHeight: '24.55px',
-                                            textAlign: 'center',
-                                            width: '100%',
-                                            padding: '0',
-                                            paddingLeft: '8px' 
-                                        },
-                                        '& .MuiStepLabel-iconContainer': {
-                                            paddingRight: '0', 
-                                        },
-                                    }}
-                                        icon={
-                                            <RadioButtonUncheckedIcon
-                                                fontSize="small"
+                    {/* was it supposed to be an accordion or not? aaa */}
+                    <Accordion 
+                    expanded={expanded}
+                    onChange={handleChange}
+                    sx={{ display: 'flex', 
+                        flexDirection: 'column-reverse',
+                         padding: 0,
+                        boxShadow: 'none',
+                        '&:before': {
+                        display: 'none', 
+                } }}>
+                        <AccordionSummary sx={{
+                            padding: 0, 
+                            border: 'none',
+                            height: 58
+                        }}>
+                            <div className="details como-funciona">
+                                <p>Como funciona? {expanded ? <ExpandLess /> : <ExpandMore />}</p>
+                            </div>
+                        </AccordionSummary>
+                        <AccordionDetails sx={{ padding: 0}}>
+                            <div className="steps">
+                                <Stepper activeStep={0} connector={<BeautifulConnector />} orientation="vertical">
+                                    {steps.map((step, index) => (
+                                        <Step
+                                            key={index}
+                                            sx={{
+                                                '.MuiStep-root': {
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    padding: '0px',
+                                                },
+                                            }}>
+                                            <StepLabel
                                                 sx={{
-                                                    color: index === 0 ? '#03D69D' : '#E5E5E5',
-                                                    padding: 0,
-                                                }} />}
-                                    >
-                                        <p className="entry">{step.entry}<span>{formatCurrency(step.price)}</span></p>
-                                    </StepLabel>
-                                </Step>
-                            ))}
-                        </Stepper>
-                    </div>
+                                                    '&.MuiStepLabel-root': {
+                                                        padding: '0',
+                                                    },
+                                                    '& .MuiStepLabel-label': {
+                                                        color: '#4D4D4D',
+                                                        fontFamily: 'Nunito',
+                                                        fontSize: '18px',
+                                                        fontWeight: '600',
+                                                        lineHeight: '24.55px',
+                                                        textAlign: 'center',
+                                                        width: '100%',
+                                                        padding: '0',
+                                                        paddingLeft: '8px'
+                                                    },
+                                                    '& .MuiStepLabel-iconContainer': {
+                                                        paddingRight: '0',
+                                                    },
+                                                }}
+                                                icon={
+                                                    <RadioButtonUncheckedIcon
+                                                        fontSize="small"
+                                                        sx={{
+                                                            color: index === 0 ? '#03D69D' : '#E5E5E5',
+                                                            padding: 0,
+                                                        }} />}
+                                            >
+                                                <p className="entry">{step.entry}<span>{formatCurrency(step.price)}</span></p>
+                                            </StepLabel>
+                                        </Step>
+                                    ))}
+                                </Stepper>
+                            </div>
 
-                    <div className="details">
-                            <p>CET: 0,5%<span>Total: {formatCurrency(installment.total)}</span></p>
-                    </div>
-
-                    <div className="details como-funciona">
-                            <p>Como funciona? <ExpandLess /></p>
-                    </div>
+                            <div className="details">
+                                <p>CET: 0,5%<span>Total: {formatCurrency(installment.total)}</span></p>
+                            </div>
+                        </AccordionDetails>
+                    </Accordion>
                 </div>
 
                 <PaymentIdentifier id="2c1b951f356c4680b13ba1c9fc889c47" />
