@@ -3,7 +3,7 @@ import { formatCurrency } from '../../helpers/price'
 
 import './installment-rectangle.css'
 import { CheckboxButton } from '../CheckboxButton/checkbox-button'
-import { Installment } from '../../data/installments'
+import type { Installment } from '../../data/installments'
 
 interface InstallmentProps extends ComponentProps<'div'> {
     installment: Installment

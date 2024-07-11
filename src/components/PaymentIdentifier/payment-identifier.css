@@ -1,0 +1,20 @@
+.identifier {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.identifier p {
+    color: #B2B2B2;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.identifier span {
+    color: #4D4D4D;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+}
