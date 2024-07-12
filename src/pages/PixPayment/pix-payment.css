@@ -1,4 +1,4 @@
-.pix-creditcard {
+.pix, .creditcard {
     width: 100%;
     background-color: #FFF;
     display: flex;
@@ -6,12 +6,16 @@
     justify-content: center;
 }
 
-.pix-content {
+.pix-content, .creditcard-content {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-top: 20px;
     width: 100%;
+}
+
+.creditcard-content {
+    margin-top: 28px;
 }
 
 .steps {

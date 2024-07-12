@@ -1,9 +1,9 @@
 export interface Installment {
-    times: number,
-    price: number,
-    total: number,
-    cashback?: number,
-    cashbackTotal?: number,
+    times: number
+    price: number
+    total: number
+    cashback?: number
+    cashbackTotal?: number
     fee?: number
 }
 

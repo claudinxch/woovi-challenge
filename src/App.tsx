@@ -1,7 +1,7 @@
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { PaymentMethod } from './pages/PaymentMethod/payment-method'
-import { PixPayment } from './pages/pix+creditCard/pix-payment'
+import { PixPayment } from './pages/PixPayment/pix-payment'
 import { CreditCardPayment } from './pages/CreditcardPayment/creditcard-payment'
 
 function App() {

@@ -1,15 +1,15 @@
 import { ComponentProps } from "react";
 import { Footer } from "../Footer/footer";
 import { Header } from "../Header/header";
-import './container.css'
+import './layout.css'
 
 interface ContainerProps extends ComponentProps<'div'>{
     instruction: string
 }
 
-export function Container({instruction, ...props}: ContainerProps) {
+export function Layout({instruction, ...props}: ContainerProps) {
     return(
-        <div className="container">
+        <div className="layout">
                 <Header instruction={instruction} />
                     {props.children}
                 <Footer />

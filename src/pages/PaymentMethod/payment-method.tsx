@@ -2,7 +2,7 @@ import { InstallmentRectangle } from '../../components/installment-rectangle.tsx
 import './payment-method.css'
 import { type Installment, installments } from '../../data/installments'
 import { useState } from 'react'
-import { Container } from '../../components/Container/container';
+import { Layout } from '../../components/Layout/layout' 
 import { useNavigate } from "react-router-dom";
 
 export function PaymentMethod(){
@@ -18,7 +18,7 @@ export function PaymentMethod(){
 
     return (
     <div className="payment-method">
-         <Container instruction='João, como você quer pagar?'>
+         <Layout instruction='João, como você quer pagar?'>
             <div className='installments'>
                 <div className='first-installment'>
                     <InstallmentRectangle 
@@ -39,7 +39,7 @@ export function PaymentMethod(){
                 </div>
             </div>
 
-        </Container>
+        </Layout>
     </div>
     )
 }

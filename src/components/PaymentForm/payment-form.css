@@ -1,18 +1,16 @@
-.qrcode {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+.payment-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
 }
 
-.qrcode .image {
-    padding: 18px;
-    border: 2px solid #03D69D;
-    border-radius: 10px;
+.span-2 {
+    grid-column: span 2 / span 2;
 }
 
-.qrcode button {
+.payment-form button {
     min-width: 66%;
+    width: 100%;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -26,8 +24,4 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 24.55px;
-}
-
-.qrcode button img {
-    margin-left: 10px;
 }
