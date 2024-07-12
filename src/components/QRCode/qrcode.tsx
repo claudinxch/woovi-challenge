@@ -3,6 +3,7 @@ import './qrcode.css'
 import { Snackbar, Alert } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import type { Installment } from '../../data/installments';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
 interface SnackbarProps {
     open: boolean
@@ -72,11 +73,8 @@ export function QRCode({ installment }: QRCodeProps) {
             </div>
 
             <button onClick={() => handleCopy(installment)}> {/* disabled={isCopied} */}
-                {/* <span>{isCopied ? 'Copiado' : 'Clique para copiar QR CODE'}</span>
-                {isCopied ? <CheckCircleOutlineIcon sx={{ color: '#FFF', marginLeft: '10px' }} /> : <img src="copy.svg" alt="copy icon" />} */}
-
-                Clique para copiar QR CODE
-                <img src="copy.svg" alt="copy icon" />
+                {isCopied ? 'Copiado' : 'Clique para copiar QR CODE'}
+                {isCopied ? <TaskAltIcon sx={{ color: '#FFF', marginLeft: '10px' }} /> : <img src="copy.svg" alt="copy icon" />}
             </button>
         </div>
     )
